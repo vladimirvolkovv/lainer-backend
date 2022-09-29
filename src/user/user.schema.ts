@@ -13,9 +13,15 @@ export class User {
   email: string;
   @Prop({ required: true })
   password: string;
-  @Prop({ required: false, type: SchemaTypes.ObjectId, ref: Role.name })
+  @Prop({ required: false })
+  blocked: boolean;
+  @Prop({ required: false, type: [SchemaTypes.ObjectId], ref: Role.name })
   roles: Types.ObjectId[];
-  @Prop({ required: false, type: SchemaTypes.ObjectId, ref: RentalObject.name })
+  @Prop({
+    required: false,
+    type: [SchemaTypes.ObjectId],
+    ref: RentalObject.name,
+  })
   rentalObjects: Types.ObjectId[];
 }
 

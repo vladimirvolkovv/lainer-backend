@@ -10,6 +10,7 @@ import { ExistingUserDTO } from 'src/user/dtos/existing-user.dto';
 import { NewUserDTO } from 'src/user/dtos/new-user.dto';
 import { UserDetails } from 'src/user/user-details.interface';
 import { UserService } from 'src/user/user.service';
+import { Types } from 'mongoose';
 
 @Injectable()
 export class AuthService {
@@ -66,6 +67,8 @@ export class AuthService {
     email?: string;
     userName?: string;
     message?: string;
+    roles?: Types.ObjectId[];
+    rentalObjects?: Types.ObjectId[];
   } | null> {
     const { email, password } = existingUser;
     const user = await this.validateUser(email, password);
@@ -82,6 +85,8 @@ export class AuthService {
       token: jwt,
       email,
       userName: user.name,
+      roles: user.roles,
+      rentalObjects: user.rentalObjects,
     };
   }
 }

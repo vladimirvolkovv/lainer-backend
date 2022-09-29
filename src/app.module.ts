@@ -8,6 +8,9 @@ import { RentalObjectModule } from './rental-object/rental-object.module';
 import { UserModule } from './user/user.module';
 import { AuthModule } from './auth/auth.module';
 import { RoleModule } from './role/role.module';
+import { FloorModule } from './floor/floor.module';
+import { SpaceModule } from './space/space.module';
+import { PlanogramModule } from './planogram/planogram.module';
 
 const env = process.env;
 
@@ -23,6 +26,9 @@ const env = process.env;
     UserModule,
     AuthModule,
     RoleModule,
+    FloorModule,
+    SpaceModule,
+    PlanogramModule,
   ],
   controllers: [AppController],
   providers: [AppService],

@@ -16,6 +16,7 @@ import { RentalObjectService } from './rental-object.service';
 export class RentalObjectController {
   constructor(private rentalObjectService: RentalObjectService) {}
 
+  @UseGuards(JwtGuard)
   @Post()
   createRentalObject(
     @Body('name') name: string,
